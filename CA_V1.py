@@ -1,7 +1,6 @@
 #Importing datetime so when can check im expiry date has passed.
 import datetime
 
-
 #Incasing the entire code in a loop so it can be selected if they want to run again later on.
 while True:
 
@@ -44,16 +43,12 @@ while True:
         except ValueError:
             print("Please enter numbers only: ")
 
-
-
 #Coverting the date into only days so when can compare it.
     days = ConvertDateToDay(exp_year, exp_month, exp_day)
-
 
 #Card number input.
     while True:
         lyc_num = input("Please enter card number: ")
-
 
         if lyc_num.isalpha():
             print("Please enter only whole numbers only")
@@ -74,7 +69,6 @@ while True:
 
 #Revering the list and making a new variable lyc_numLR.
     lyc_numLR = lyc_numL[::-1]
-
 
 #Creating list for multiplied 1,3,5 and 7 digits.
     lyc_numLRM = []
@@ -99,7 +93,6 @@ while True:
     if lyc_numLRM[6] > 9:
         lyc_numLRM[6] = lyc_numLRM[6] - 9
 
-
 #Adding the whole list up.
     added = 0
     for index in lyc_numLRM:
@@ -112,7 +105,6 @@ while True:
     expired = 0
     if days < TDate:
         expired = 1
-
 
 #Outputting card.
     print("----------------------------------------")
