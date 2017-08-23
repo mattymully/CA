@@ -1,25 +1,12 @@
 #Importing datetime so when can check im expiry date has passed.
-import datetime
+from datetime import datetime
 
 #Incasing the entire code in a loop so it can be selected if they want to run again later on.
 while True:
 
-#Functions.
-    def ConvertDateToDay(year,month,day):
-        days = 0
-        days = days + year * 365
-        days = days + month * 30
-        days = days + day
-        return days
-
-#Pulling the year, month and days.
-    today = datetime.date.today()
-    tyear = today.year
-    tmonth = today.month
-    tday = today.day
-
-#Converting into days so we can compare it to expiry date.
-    TDate = ConvertDateToDay(tyear,tmonth,tday)
+#Getting current date
+    cdate = datetime.today()
+    print(cdate)
 
 #Inputs for name, postcode ,expirt date and card number.
     while True:
@@ -35,29 +22,26 @@ while True:
 #Expiry date input.
     while True:
         try:
-            exp_year = int(input("Please enter year: "))
-            exp_month = int(input("Please enter month: "))
-            exp_day = int(input("Please enter day: "))
+            idate = input("Please enter date in format day/month/year, eg 24/5/2019: ")
+            idate = datetime.strptime(idate, "%d/%m/%Y")
             break
-
         except ValueError:
-            print("Please enter numbers only: ")
-
-#Coverting the date into only days so when can compare it.
-    days = ConvertDateToDay(exp_year, exp_month, exp_day)
+            print("Please make sure you have enterd date correctly.")
 
 #Card number input.
     while True:
-        lyc_num = input("Please enter card number: ")
+        try:
+            lyc_num = input("Please enter card number: ")
 
-        if lyc_num.isalpha():
-            print("Please enter only whole numbers only")
 
-        if len(str(lyc_num)) != 8:
+            if len(str(lyc_num)) != 8:
             print("Card must be 8 digits long")
 
-        else:
-            break
+            else:
+                break
+        except ValueError:
+            print("Please enter only whole numbers.")
+
 
 #Converting input to list and a new variable lyc_numL.
     lyc_numL = []
@@ -101,25 +85,20 @@ while True:
 #Adding the check digit.
     added = added + check_digit
 
-#Checking if expired.
-    expired = 0
-    if days < TDate:
-        expired = 1
-
 #Outputting card.
     print("----------------------------------------")
     print("Name =",name)
     print("Postcode =",pc)
-    print("Exp Date =",exp_day,"/",exp_month,"/",exp_year)
+    print("Exp Date =",idate)
     print("Card Number =",lyc_num)
     print("----------------------------------------")
 
 #Printing if expired or not.
-    if expired == 1:
-        print("Out of date")
-    else:
-        print("In date")
+    if cdate > idate:
+        print("Card out of date")
 
+    else:
+        print("Card in date")
 #Validating the card.
     if added % 10 == 0:
         print("Card number is valid")
