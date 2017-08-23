@@ -31,11 +31,11 @@ while True:
 #Card number input.
     while True:
         try:
-            lyc_num = input("Please enter card number: ")
+            lyc_num = int(input("Please enter card number: "))
 
 
             if len(str(lyc_num)) != 8:
-            print("Card must be 8 digits long")
+                print("Card must be 8 digits long")
 
             else:
                 break
@@ -45,7 +45,7 @@ while True:
 
 #Converting input to list and a new variable lyc_numL.
     lyc_numL = []
-    for num in lyc_num:
+    for num in str(lyc_num):
         lyc_numL.append(int(num))
 
 #Grabbing the check digit.
