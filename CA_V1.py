@@ -1,4 +1,3 @@
-#WIP
 #Importing datetime so when can check im expiry date has passed.
 from datetime import datetime
 #Incasing the entire code in a loop so it can be selected if they want to run again later on.
