@@ -31,12 +31,16 @@ while True:
     while True:
         try:
             lyc_num = int(input("Please enter card number: "))
+
+
             if len(str(lyc_num)) != 8:
                 print("Card must be 8 digits long")
+
             else:
                 break
         except ValueError:
             print("Please enter only whole numbers.")
+
 
 #Converting input to list and a new variable lyc_numL.
     lyc_numL = []
@@ -51,16 +55,26 @@ while True:
 
 #Creating list for multiplied 1,3,5 and 7 digits.
     lyc_numLRM = []
-    for i in range(len(lyc_numLR)):
-        if i % 2 == 0:
-            lyc_numLRM.append(lyc_numLR[i] * 2)
-        else:
-            lyc_numLRM.append(lyc_numLR[i])
+    lyc_numLRM.append(lyc_numLR[0] * 2)
+    lyc_numLRM.append(lyc_numLR[1])
+    lyc_numLRM.append(lyc_numLR[2] * 2)
+    lyc_numLRM.append(lyc_numLR[3])
+    lyc_numLRM.append(lyc_numLR[4] * 2)
+    lyc_numLRM.append(lyc_numLR[5])
+    lyc_numLRM.append(lyc_numLR[6] * 2)
 
 #Checking if the new digit is over 9 if so removing 9.
-    for i in range(len(lyc_numLRM)):
-        if lyc_numLRM[i] > 9:
-            lyc_numLRM[i] = lyc_numLRM[i] - 9
+    if lyc_numLRM[0] > 9:
+        lyc_numLRM[0] = lyc_numLRM[0] - 9
+
+    if lyc_numLRM[2] > 9:
+        lyc_numLRM[2] = lyc_numLRM[2] - 9
+
+    if lyc_numLRM[4] > 9:
+        lyc_numLRM[4] = lyc_numLRM[4] - 9
+
+    if lyc_numLRM[6] > 9:
+        lyc_numLRM[6] = lyc_numLRM[6] - 9
 
 #Adding the whole list up.
     added = 0
@@ -81,20 +95,27 @@ while True:
 #Printing if expired or not.
     if cdate > idate:
         print("Card out of date!")
+
     else:
         print("Card in date")
-        print("----------------------------------------")
+
+    print("----------------------------------------")
 #Validating the card.
     if added % 10 == 0:
         print("Card number is valid")
+
     else:
         print("Card number is invalid!")
-        print("----------------------------------------")
+
+    print("----------------------------------------")
 
 #Selecting if they want to run the program again.
     try:
         Continue = int(input("Enter 1 to stop or any key to continue \n----------------------------------------\n"))
+        #print("----------------------------------------")
+
         if Continue == 1:
             break
+
     except ValueError:
         continue
