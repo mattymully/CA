@@ -68,7 +68,7 @@ while True:
     if cdate > idate:
         print("Card out of date!")
     else:
-        print("Card in date")
+        print("Card is in date")
         print("----------------------------------------")
 #Validating the card.
     if added % 10 == 0:
