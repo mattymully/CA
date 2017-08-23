@@ -111,7 +111,6 @@ while True:
 #Selecting if they want to run the program again.
     try:
         Continue = int(input("Enter 1 to stop or any key to continue \n----------------------------------------\n"))
-        #print("----------------------------------------")
 
         if Continue == 1:
             break
