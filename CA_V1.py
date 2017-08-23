@@ -1,4 +1,3 @@
-#WIP
 #Importing datetime so when can check im expiry date has passed.
 from datetime import datetime
 #Incasing the entire code in a loop so it can be selected if they want to run again later on.
@@ -7,9 +6,11 @@ while True:
     cdate = datetime.today()
 #Inputs for name, postcode ,expirt date and card number.
     while True:
-        name = input("----------------------------------------\nPlease enter name on card: ")
+        name = input("----------------------------------------\nPlease enter first and last name on card: ")
         if name.isnumeric():
             print("Please enter only letters")
+        elif len(name.split()) != 2:
+            print("please enter exactly 2 names")
         else:
             break
 #Postcode input.
