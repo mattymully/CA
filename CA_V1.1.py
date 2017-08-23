@@ -6,14 +6,12 @@ while True:
 
 #Getting current date
     cdate = datetime.today()
-    print(cdate)
 
 #Inputs for name, postcode ,expirt date and card number.
     while True:
         name = input("----------------------------------------\nPlease enter name on card: ")
         if name.isnumeric():
             print("Please enter only letters")
-
         else:
             break
 #Postcode input.
@@ -89,26 +87,28 @@ while True:
     print("----------------------------------------")
     print("Name =",name)
     print("Postcode =",pc)
-    print("Exp Date =",idate)
+    print("Exp Date =",datetime.strftime(idate, "%d/%m/%Y"))
     print("Card Number =",lyc_num)
     print("----------------------------------------")
 
 #Printing if expired or not.
     if cdate > idate:
-        print("Card out of date")
+        print("Card out of date!")
 
     else:
         print("Card in date")
+
+    print("----------------------------------------")
 #Validating the card.
     if added % 10 == 0:
         print("Card number is valid")
 
     else:
-        print("Card number is invalid")
+        print("Card number is invalid!")
 
     print("----------------------------------------")
 
-#Selecting if they want to run the program today.
+#Selecting if they want to run the program again.
     try:
         Continue = int(input("Enter 1 to stop or any key to continue \n----------------------------------------\n"))
         #print("----------------------------------------")
