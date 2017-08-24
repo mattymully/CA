@@ -1,12 +1,14 @@
 #Importing datetime so when can check im expiry date has passed.
 from datetime import datetime
+import os
 #Incasing the entire code in a loop so it can be selected if they want to run again later on.
 while True:
 #Getting current date
     cdate = datetime.today()
 #Inputs for name, postcode ,expirt date and card number.
+    os.system('CLS')
     while True:
-        name = input("----------------------------------------\nPlease enter first and last name on card: ")
+        name = input("Please enter first and last name on card: ")
         if name.isnumeric():
             print("Please enter only letters")
         elif len(name.split()) != 2:
@@ -14,8 +16,10 @@ while True:
         else:
             break
 #Postcode input.
+    os.system('CLS')
     pc = str(input("Please enter postcode: "))
 #Expiry date input.
+    os.system('CLS')
     while True:
         try:
             idate = input("Please enter date in format day/month/year, eg 24/5/2019: ")
@@ -24,6 +28,7 @@ while True:
         except ValueError:
             print("Please make sure you have enterd date correctly.")
 #Card number input.
+    os.system('CLS')
     while True:
         try:
             lyc_num = int(input("Please enter card number: "))
@@ -60,6 +65,7 @@ while True:
 #Adding the check digit.
     added = added + check_digit
 #Outputting card.
+    os.system('CLS')
     print("----------------------------------------")
     print("--Name =",name)
     print("--Postcode =",pc)
