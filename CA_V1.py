@@ -61,22 +61,22 @@ while True:
     added = added + check_digit
 #Outputting card.
     print("----------------------------------------")
-    print("-Name =",name)
-    print("-Postcode =",pc)
-    print("-Exp Date =",datetime.strftime(idate, "%d/%m/%Y"))
-    print("-Card Number =",lyc_num)
+    print("--Name =",name)
+    print("--Postcode =",pc)
+    print("--Exp Date =",datetime.strftime(idate, "%d/%m/%Y"))
+    print("--Card Number =",lyc_num)
     print("----------------------------------------")
 #Printing if expired or not.
     if cdate > idate:
-        print("-Card out of date!")
+        print("--Card out of date!")
     else:
-        print("-Card in date")
+        print("--Card in date")
         print("----------------------------------------")
 #Validating the card.
     if added % 10 == 0:
-        print("-Card number is valid")
+        print("--Card number is valid")
     else:
-        print("-Card number is invalid!")
+        print("--Card number is invalid!")
     print("----------------------------------------")
 #Selecting if they want to run the program again.
     try:
